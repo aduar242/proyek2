@@ -60,7 +60,7 @@ class CategoryController extends Controller
                 'name' => $request->name,
                 'description' => $request->description
             ]);
-            return redirect(route('kategori.index'))->with(['success' => 'Kategori: ' . $categories->name . ' Ditambahkan']);
+            return redirect(route('kategori-produk.index'))->with(['success' => 'Kategori: ' . $categories->name . ' Ditambahkan']);
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }

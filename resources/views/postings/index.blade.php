@@ -60,11 +60,11 @@
                                         @forelse ($postings as $row)
                                         <tr>
                                             <td>
-                                                @if (!empty($row->photo))
+                                                @if (empty($row->photo))
+                                                    <img src="{{ asset('dist/img/tidak-ada-image.png') }}" alt="{{ $row->name }}" width="100px" height="100px">
+                                                @else
                                                     <img src="{{ asset('uploads/posting/' . $row->photo) }}" 
                                                         alt="{{ $row->name }}" width="100px" height="100px">
-                                                @else
-                                                    <img src="{{ asset('dist/img/tidak-ada-image.png') }}" alt="{{ $row->name }}" width="100px" height="100px">
                                                 @endif
                                             </td>
                                             <td>

@@ -5,11 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KategoriPosting;
 use App\Posting;
+use App\User;
 use File;
 use Image;
 
 class PostingController extends Controller
 {
+    // Untuk Pagnation
+    public function tags()
+
+    {
+        $postings = DB::Postings('postings')->paginate(3);
+        return view('postings',compact('postings'));
+    }
+
     public function index()
     {
         $postings = Posting::with('kategoriposting')->orderBy('created_at', 'DESC')->paginate(10);
@@ -19,7 +28,14 @@ class PostingController extends Controller
      public function web()
     {
         $posting = Posting::all();
-        return view('postings.web',compact('posting'));
+        return view('postings.kegiatan',compact('posting'));
+    }
+
+    public function show($id)
+    {
+        $munculinsemua = Posting::all();
+        $posting = Posting::find($id);
+        return view('postings.single', compact('posting','munculinsemua'));    
     }
 
     public function create()
@@ -86,11 +102,6 @@ class PostingController extends Controller
         return view('postings.edit', compact('posting', 'kategoripostings'));
     }
 
-    public function show($id)
-    {
-        $posting = Posting::find($id);
-        return view('postings.single', compact('posting'));    
-    }
 
     public function update(Request $request, $id)
     {

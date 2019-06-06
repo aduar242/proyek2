@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         @card
                             @slot('title')
-                            <a href="{{ route('produk.create') }}" 
+                            <a href="{{ route('manajemen-produk.create') }}" 
                                 class="btn btn-primary btn-sm">
                                 <i class="fa fa-edit"></i> Tambah
                             </a>
@@ -73,10 +73,10 @@
                                             <td>{{ $row->category->name }}</td>
                                             <td>{{ $row->updated_at }}</td>
                                             <td>
-                                                <form action="{{ route('produk.destroy', $row->id) }}" method="POST">
+                                                <form action="{{ route('manajemen-produk.destroy', $row->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('produk.edit', $row->id) }}" 
+                                                    <a href="{{ route('manajemen-produk.edit', $row->id) }}" 
                                                         class="btn btn-warning btn-sm">
                                                         <i class="fa fa-edit"></i>
                                                     </a>

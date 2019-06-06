@@ -12,10 +12,50 @@
 */
 
 
+// Route::get('/', 'HomeController@nampil')->name('kegiatan');
 Route::get('/', function() {
-    return redirect(route('login'));
+    return redirect(route('rumah.web'));
 });
+
+// Route::get('/home', function() {
+//     return redirect(route('login'));
+// });
+
+Route::get('/registrasi', function() {
+    return redirect(route('register'));
+});
+
+    Route::resource('/kontak', 'KontakController');
+    Route::get('/rumah', 'RumahController@web')->name('rumah.web');
+// frontend single kegiatan
+
+
+    Route::get('/kegiatan/{id}/{name}','PostingController@show')->name('posting.single');
+    Route::resource('/kegiatan', 'PostingController');
+// frontend index postingan menjadi -> kegiatan
+    Route::get('/kegiatan', 'PostingController@web')->name('posting.web');
+// frontend index kontak menjadi -> kontak
+    Route::get('/kontak', 'KontakController@web')->name('kontak.web');
+// frontend produk single
+    Route::get('/produk/{id}/{name}','ProductController@show')->name('produk.single');
+// frontend index product menjadi -> produk
+    Route::get('/produk', 'ProductController@web')->name('produk.web');    
+
+
+    // Route::get('/login2', 'HomeController@login2')->name('auth.login2');
+
+// Autentikasi Untuk Masuk Ke login
+
 Auth::routes();
+
+// Komentar kegiatan
+    Route::get('/komentar/{pageId}', function($pageId){
+    return view('page',['pageId' => $pageId]);
+});
+Route::get('comments/{pageId}', 'CommentController@index');
+Route::post('comments', 'CommentController@store');
+Route::post('comments/{commentId}/{type}', 'CommentController@update');
+
 Route::group(['middleware' => 'auth'], function() {
 
     Route::group(['middleware' => ['role:admin']], function () {
@@ -34,10 +74,10 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     Route::group(['middleware' => ['permission:show products|create products|delete products']], function() {
-        Route::resource('/kategori', 'CategoryController')->except([
+        Route::resource('/kategori-produk', 'CategoryController')->except([
             'create', 'show'
         ]);
-        Route::resource('/produk', 'ProductController');
+        Route::resource('/manajemen-produk', 'ProductController');
     });
 
 
@@ -48,10 +88,10 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     Route::group(['middleware' => ['role:admin']], function() {
-        Route::resource('/kategori', 'CategoryController')->except([
+        Route::resource('/kategori-produk', 'CategoryController')->except([
             'create', 'show'
         ]);
-        Route::resource('/produk', 'ProductController');
+        Route::resource('/manajemen-produk', 'ProductController');
         Route::get('/order', 'OrderController@index')->name('order.index');
         Route::get('/order/pdf/{invoice}', 'OrderController@invoicePdf')->name('order.pdf');
         Route::get('/order/excel/{invoice}', 'OrderController@invoiceExcel')->name('order.excel');
@@ -65,7 +105,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('/posting', 'PostingController');
     });
 
-// postingan ntah
+    // postingan ntah
     Route::group(['middleware' => ['role:admin']], function() {
         Route::resource('/kategoriposting', 'KategoriPostingController')->except([
             'create', 'show'
@@ -74,13 +114,12 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
 
-    Route::get('/home', 'HomeController@index')->name('home');
+
 
 // frontend single
-    Route::get('web/kegiatan/postingan/{id}','PostingController@show')->name('posting.single');
+    Route::get('/kegiatan/{id}','PostingController@show')->name('posting.single');
 // frontend index
-    Route::get('web/sritanjung', 'PostingController@web')->name('posting.web');
 
+    Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/login2', 'HomeController@login2')->name('auth.login2');
 });

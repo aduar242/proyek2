@@ -16,35 +16,34 @@
 
                 @if (auth()->user()->can('show products') || auth()->user()->can('delete products') || auth()->user()->can('create products'))
                 
-                
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-server"></i>
+                @endif
+                <li class="nav-item has-treeview itmenu-open">
+                    @if(URL::current() == URL::route('home'))
+                                        <a href="{{ route('home') }}" class="nav-link active">
+                                    @else
+                                        <a href="{{ route('home') }}" class="nav-link">
+                                    @endif
+                        <i class="nav-icon fa fa-area-chart"></i>
                         <p>
-                            Manajemen Produk
-                            <i class="right fa fa-angle-left"></i>
+                            Analisa
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('kategori.index') }}" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Kategori</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('produk.index') }}" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Produk</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
-                @endif
-
+                <li class="nav-item has-treeview itmenu-open">
+                    <a href="{{ route('posting.web')}}" class="nav-link">
+                        <i class="nav-icon fa fa-desktop"></i>
+                        <p>
+                            Website
+                        </p>
+                    </a>
+                </li>
                 @role('kasir')
                 <li class="nav-item">
-                    <a href="{{ route('order.transaksi') }}" class="nav-link">
+                    @if(URL::current() == URL::route('order.transaksi'))
+                        <a href="{{ route('order.transaksi') }}" class="nav-link active">
+                    @else
+                        <a href="{{ route('order.transaksi') }}" class="nav-link">
+                    @endif
                         <i class="nav-icon fa fa-shopping-cart"></i>
                         <p>
                             Transaksi
@@ -52,16 +51,7 @@
                     </a>
                 </li>
                 @endrole                
-                
                 @role('admin')
-                <li class="nav-item has-treeview itmenu-open">
-                    <a href="{{ route('home') }}" class="nav-link active">
-                        <i class="nav-icon fa fa-dashboard"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
                  <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
 
@@ -74,15 +64,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('kategoriposting.index') }}" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Kategori Kegiatan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('posting.index') }}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Post Kegiatan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('kategoriposting.index') }}" class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>Kategori Kegiatan</p>
                             </a>
                         </li>
                     </ul>
@@ -98,15 +88,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('kategori.index') }}" class="nav-link">
+                            <a href="{{ route('manajemen-produk.index') }}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Kategori</p>
+                                <p>Produk</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('produk.index') }}" class="nav-link">
+                            <a href="{{ route('kategori-produk.index') }}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Produk</p>
+                                <p>Kategori</p>
                             </a>
                         </li>
                     </ul>
@@ -128,7 +118,7 @@
                         </li>
                     </ul>
                 </li>
-               <!--  <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>
@@ -156,7 +146,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> -->
+                </li>
                 @endrole
 
                 <li class="nav-item has-treeview">

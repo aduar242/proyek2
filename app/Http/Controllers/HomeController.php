@@ -13,8 +13,8 @@ use DB;
 
 class HomeController extends Controller
 {
-    public function login2(){
-        return view('auth/login2');
+    public function login(){
+        return view('auth/login');
     }
     public function index()
     {

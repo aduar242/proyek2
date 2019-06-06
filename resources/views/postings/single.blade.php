@@ -1,151 +1,475 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Pd.Sritanjung | {{ $posting->name }} </title>
-        <link rel="stylesheet" href="{{ url('tampilan_user/css/normalize.css') }}">
-        <link rel="stylesheet" href="{{ url('tampilan_user/css/main.css') }}" media="screen" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
-        
+<!doctype html>
+<html lang="en">
 
-        <link rel="stylesheet" href="{{ url('tampilan_user/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ url('tampilan_user/css/style-portfolio.css') }}">
-        <link rel="stylesheet" href="{{ url('tampilan_user/css/picto-foundry-food.css') }}">
-        <link rel="stylesheet" href="{{ url('tampilan_user/css/jquery-ui.css') }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{{ url('tampilan_user/css/font-awesome.min.css') }}" rel="stylesheet">
-        <link rel="icon" href="favicon-1.ico" type="image/x-icon">
-    </head>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @include('tittle')
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url ('frontend/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/vendors/linericon/style.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/vendors/owl-carousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/vendors/lightbox/simpleLightbox.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/vendors/nice-select/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/vendors/animate-css/animate.css') }}">
+    <!-- main css -->
+    <link rel="stylesheet" href="{{url ('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{url ('frontend/css/responsive.css') }}">
+</head>
 
-    <body>
+<body>
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="row">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
+    <!--================Header Menu Area =================-->
+    @include('postings.grup.kepala')
+    <!--================Header Menu Area =================-->
 
-                        <a class="navbar-brand" href="#top">Pd. Sritanjung</a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        
+    <!--================Home Banner Area =================-->
+    @include('postings.grup.bannerKegiatan')
+    <!--================End Home Banner Area =================-->
+
+    <!--================Blog Categorie Area =================-->
+    <section class="blog_categorie_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="img/blog/cat-post/cat-post-3.jpg" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="blog-details.html">
+                                    <h5>Social Life</h5>
+                                </a>
+                                <div class="border_line"></div>
+                                <p>Enjoy your social life together</p>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    	<ul class="nav navbar-right top-nav">
-                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
-                            <li><a class="color_animation" href="{{ route('posting.web') }}">HOME</a></li>
-                            <li><a class="navactive color_animation" href="#top">BERANDA</a></li>
-                            <li><a class="color_animation" href="#kegiatan">KEGIATAN</a></li>
-                            <li class="dropdown">
-                            	<a class="color_animation" href="#" data-toggle="dropdown"><i class="fa fa-user"></i> Admin</a>
-                            	<ul class="dropdown-menu">
-                            		<img class="thumbnail" style="height:100px; float-right; margin:10px" src="default.jpg">
-                            		<li class="nav-item has-treeview">
-                            			<a class="nav-link" href="{{ route('home') }}">
-                            				<i class="nav-icon fa fa-dashboard">
-                            					{{ __('Dashboard') }}
-                            				</i>
-                            			</a>
-                            		</li>
-                            		<li class="nav-item has-treeview">
-                            			<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            				<i class="nav-icon fa fa-sign-out">
-                            					{{ __('Keluar') }}
-                            				</i>
-                            			</a>
-                            			<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            				@csrf
-                            			</form>
-                            		</li>
-                            	</ul>
-                            </li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
                 </div>
-            </div><!-- /.container-fluid -->
-        </nav>
-        <div id="top" class="starter_container bg">
-            <div class="follow_container">
-                <div class="col-md-6 col-md-offset-3">
-                	<img src="{{ url('dist/img/logo-putih.png') }}" width="90%" alt="User Image">
-                    
-                    <h2 class="white second-title">" Best in the city "</h2>
-                    <hr>
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="img/blog/cat-post/cat-post-2.jpg" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="blog-details.html">
+                                    <h5>Politics</h5>
+                                </a>
+                                <div class="border_line"></div>
+                                <p>Be a part of politics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="img/blog/cat-post/cat-post-1.jpg" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="blog-details.html">
+                                    <h5>Food</h5>
+                                </a>
+                                <div class="border_line"></div>
+                                <p>Let the food be finished</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+    <!--================Blog Categorie Area =================-->
 
-        <!-- ============ About Us ============= -->
-
-        <section id="kegiatan" class="description_content">
-            <div class="text-content container">
-                <div class="col-md-6">
-                    <div class="img-section">
-	                    	@if (!empty($posting->photo))
-							<img src="{{ url('uploads/posting') }}/{{$posting->photo}}" class="gambar" height="500px" >
-						@else
-						<img src="{{ url('dist/img/tidak-ada-image.png') }}" alt="{{ $posting->name }}" width="500px" height="500px">
-						@endif
-                   </div>
+    <!--================Blog Area =================-->
+    <section class="blog_area single-post-area p_120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post row">
+                        <div class="col-lg-12">
+                        </div>
+                        <div class="col-lg-3  col-md-3">
+                            <div class="blog_info text-right">
+                                <ul class="blog_meta list">
+                                    <li>
+                                        <a href="#">Admin
+                                            <i class="lnr lnr-user"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">{{ $posting->created_at }}
+                                            <i class="lnr lnr-calendar-full"></i>
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="#">1.2M Views
+                                            <i class="lnr lnr-eye"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">06 Comments
+                                            <i class="lnr lnr-bubble"></i>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                                <ul class="social-links">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-behance"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9 blog_details">
+                            <h2>{{ $posting->name }}</h2>
+                            <div class="feature-img">
+                                @if (!empty($posting->photo))
+                            <img class="img-fluid" width="70%" src="{{ url('uploads/posting') }}/{{$posting->photo}}">
+                        @else
+                        <img src="{{ url('dist/img/tidak-ada-image.png') }}" alt="{{ $posting->name }}">
+                        @endif
+                            </div>
+                            <p class="excert">
+                                {{ $posting->description }}
+                            </p>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <img class="img-fluid" src="img/blog/post-img1.jpg" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <img class="img-fluid" src="img/blog/post-img2.jpg" alt="">
+                                </div>
+                                <div class="col-lg-12 mt-25">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation-area">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                                <div class="thumb">
+                                    <a href="#">
+                                        <img class="img-fluid" src="img/blog/prev.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="arrow">
+                                    <a href="#">
+                                        <span class="lnr text-white lnr-arrow-left"></span>
+                                    </a>
+                                </div>
+                                <div class="detials">
+                                    <p>Sebelumnya kegiatan</p>
+                                    <a href="#">
+                                        <h4>Judul kegiatan</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                                <div class="detials">
+                                    <p>Nex Kegiatan</p>
+                                    <a href="#">
+                                        <h4>Judul kegiatan</h4>
+                                    </a>
+                                </div>
+                                <div class="arrow">
+                                    <a href="#">
+                                        <span class="lnr text-white lnr-arrow-right"></span>
+                                    </a>
+                                </div>
+                                <div class="thumb">
+                                    <a href="#">
+                                        <img class="img-fluid" src="img/blog/next.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments-area">
+                        <h4>05 Comments</h4>
+                        <div class="comment-list">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="img/blog/c1.jpg" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h5>
+                                            <a href="#">Emilly Blunt</a>
+                                        </h5>
+                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <p class="comment">
+                                            Never say goodbye till the end comes!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-list left-padding">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="img/blog/c2.jpg" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h5>
+                                            <a href="#">Elsie Cunningham</a>
+                                        </h5>
+                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <p class="comment">
+                                            Never say goodbye till the end comes!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-list left-padding">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="img/blog/c3.jpg" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h5>
+                                            <a href="#">Annie Stephens</a>
+                                        </h5>
+                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <p class="comment">
+                                            Never say goodbye till the end comes!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-list">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="img/blog/c4.jpg" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h5>
+                                            <a href="#">Maria Luna</a>
+                                        </h5>
+                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <p class="comment">
+                                            Never say goodbye till the end comes!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-list">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="img/blog/c5.jpg" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h5>
+                                            <a href="#">Ina Hayes</a>
+                                        </h5>
+                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <p class="comment">
+                                            Never say goodbye till the end comes!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-form">
+                        <h4>Leave a Reply</h4>
+                        <form>
+                            <div class="form-group form-inline">
+                                <div class="form-group col-lg-6 col-md-6 name">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 email">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
+                                    required=""></textarea>
+                            </div>
+                            <a href="#" class="primary-btn submit_btn">Post Comment</a>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h1>{{ $posting->name }}</h1>
-					<h4>{{$posting->kategoriposting->name}}</h4>
-					<h5>Di posting pada tanggal : {{ $posting->updated_at }}</h5>
-					
-					<p>  </p>
-                    <p class="desc-text">{{ $posting->description }} </p>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search Posts">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="lnr lnr-magnifier"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                            <div class="br"></div>
+                        </aside>
+                        <aside class="single_sidebar_widget author_widget">
+                            <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                            <h4>Sumitro</h4>
+                            <p>Pemilik Pd.Sritanjung</p>
+                            <div class="social_icon">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-behance"></i>
+                                </a>
+                            </div>
+                            <p>test1232
+                            </p>
+                            <div class="br"></div>
+                        </aside>
+                        <!-- <aside class="single_sidebar_widget popular_post_widget">
+                            <h3 class="widget_title">Popular Posts</h3>
+                            <div class="media post_item">
+                                <img src="img/blog/popular-post/post1.jpg" alt="post">
+                                <div class="media-body">
+                                    <a href="blog-details.html">
+                                        <h3>Space The Final Frontier</h3>
+                                    </a>
+                                    <p>02 Hours ago</p>
+                                </div>
+                            </div>
+                            <div class="media post_item">
+                                <img src="img/blog/popular-post/post2.jpg" alt="post">
+                                <div class="media-body">
+                                    <a href="blog-details.html">
+                                        <h3>The Amazing Hubble</h3>
+                                    </a>
+                                    <p>02 Hours ago</p>
+                                </div>
+                            </div>
+                            <div class="media post_item">
+                                <img src="img/blog/popular-post/post3.jpg" alt="post">
+                                <div class="media-body">
+                                    <a href="blog-details.html">
+                                        <h3>Astronomy Or Astrology</h3>
+                                    </a>
+                                    <p>03 Hours ago</p>
+                                </div>
+                            </div>
+                            <div class="media post_item">
+                                <img src="img/blog/popular-post/post4.jpg" alt="post">
+                                <div class="media-body">
+                                    <a href="blog-details.html">
+                                        <h3>Asteroids telescope</h3>
+                                    </a>
+                                    <p>01 Hours ago</p>
+                                </div>
+                            </div>
+                            <div class="br"></div>
+                        </aside> -->
+                        <aside class="single_sidebar_widget post_category_widget">
+                            <h4 class="widget_title">Kategori Kegiatan</h4>
+                            <ul class="list cat-list">
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <p>Dalam negri</p>
+                                        <p>2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="br"></div>
+                        </aside>
+                        <aside class="single-sidebar-widget newsletter_widget">
+                            <h4 class="widget_title">Berlangganan Info Kegiatan</h4>
+                            <p>
+                                Setiap ada kegiatan di kami, kami akan otomatis pemberitahuan di email anda bahwa ada kegiatan baru di perusahaan kami
+                            </p>
+                            <div class="form-group d-flex flex-row">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter email'">
+                                </div>
+                                <a href="#" class="bbtns">Subcribe</a>
+                            </div>
+                            <p class="text-bottom">You can unsubscribe at any time</p>
+                            <div class="br"></div>
+                        </aside>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-       
-        <!-- ============ Social Section  ============= -->
-      
-        <section class="social_connect">
-            <div class="text-content container"> 
-                <div class="col-md-6">
-                    <span class="social_heading">Sosial Media</span>
-                    <ul class="social_icons">
-                        <li><a class="icon-twitter color_animation" href="#" target="_blank"></a></li>
-                        <li><a class="icon-github color_animation" href="#" target="_blank"></a></li>
-                        <li><a class="icon-linkedin color_animation" href="#" target="_blank"></a></li>
-                        <li><a class="icon-mail color_animation" href="#"></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <span class="social_heading">Kontak</span>
-                    <span class="social_info"><a class="color_animation" href="tel:883-335-6524">(123) 123-456-7890</a></span>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
 
-        
-
-        <!-- ============ Footer Section  ============= -->
-
-        <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Pd.Sritanjung 2019, Edite Theme by <a href="https://fb.com/aduarart">Aduar_art</a></p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Kembali ke <a href="#top">Atas</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Dibuatkan untuk <a href="#" target="_blank">Proyek 2</a></p></div>
-            </div>
-        </footer>
+    <!--================ start footer Area  =================-->
+    @include('postings.grup.kaki')
+    <!--================ End footer Area  =================-->
 
 
-        <script type="text/javascript" src="{{ url('tampilan_user/js/jquery-1.10.2.min.js') }}"> </script>
-        <script type="text/javascript" src="{{ url('tampilan_user/js/bootstrap.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url('tampilan_user/js/jquery-1.10.2.js') }}"></script>     
-        <script type="text/javascript" src="{{ url('tampilan_user/js/jquery.mixitup.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url('tampilan_user/js/main.js') }}"></script>
 
-    </body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{url ('frontend/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{url ('frontend/js/popper.js') }}"></script>
+    <script src="{{url ('frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{url ('frontend/js/stellar.js') }}"></script>
+    <script src="{{url ('frontend/vendors/lightbox/simpleLightbox.min.js') }}"></script>
+    <script src="{{url ('frontend/vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{url ('frontend/vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{url ('frontend/vendors/isotope/isotope-min.js') }}"></script>
+    <script src="{{url ('frontend/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{url ('frontend/vendors/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{url ('frontend/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{url ('frontend/js/mail-script.js') }}"></script>
+    <script src="{{url ('frontend/vendors/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{url ('frontend/js/theme.js') }}"></script>
+</body>
+
 </html>

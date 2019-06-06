@@ -49,7 +49,7 @@ class ProductController extends Controller
                 'category_id' => $request->category_id,
                 'photo' => $photo
             ]);
-            return redirect(route('produk.index'))
+            return redirect(route('manajemen-produk.index'))
                 ->with(['success' => '<strong>' . $product->name . '</strong> Ditambahkan']);
         } catch (\Exception $e) {
             return redirect()->back()
@@ -67,6 +67,22 @@ class ProductController extends Controller
         } 
         Image::make($photo)->save($path . '/' . $images);
         return $images;
+    }
+
+
+//Menampilkan bagian produk detail terhadap id <- Priamarykey
+    public function show($id)
+    {
+        $produk = Product::find($id);
+        return view('products.single', compact('produk'));    
+    }
+//Menampilkan semua produk 
+
+    public function web()
+    {
+        $produk = Product::all();
+        $categories = Category::all();
+        return view('products.produk',compact('produk','categories'));
     }
 
     public function destroy($id)
@@ -116,7 +132,7 @@ class ProductController extends Controller
                 'photo' => $photo
             ]);
 
-            return redirect(route('produk.index'))
+            return redirect(route('manajemen-produk.index'))
                 ->with(['success' => '<strong>' . $product->name . '</strong> Diperbaharui']);
         } catch (\Exception $e) {
             return redirect()->back()
