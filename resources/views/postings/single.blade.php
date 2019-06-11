@@ -166,42 +166,54 @@
                     </div>
                     <div class="navigation-area">
                         <div class="row">
+                            @if (!empty($prev))
                             <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                                 <div class="thumb">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/blog/prev.jpg" alt="">
+                                    <a href="{{
+                                    route('posting.single',$prev->id) }}/{{ $prev->name }}">
+                                        <img class="img-fluid" src="
+                                        {{ url('uploads/posting') }}/{{$prev->photo}}" alt="">
+                                    </a>
+                                </div>
+                                <div class="detials">
+                                    <p>Kegiatan Sebelumnya</p>
+                                    <a href="{{
+                                    route('posting.single',$prev->id) }}/{{ $prev->name }}">
+                                        <h4>Judul kegiatan : {{ $prev->name }}</h4>
                                     </a>
                                 </div>
                                 <div class="arrow">
-                                    <a href="#">
+                                    <a href="{{
+                                    route('posting.single',$prev->id) }}/{{ $prev->name }}">
                                         <span class="lnr text-white lnr-arrow-left"></span>
                                     </a>
                                 </div>
-                                <div class="detials">
-                                    <p>Sebelumnya kegiatan</p>
-                                    <a href="#">
-                                        <h4>Judul kegiatan</h4>
-                                    </a>
-                                </div>
                             </div>
+                            @endif
+                            @if (!empty($next)) 
                             <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                                 <div class="detials">
-                                    <p>Nex Kegiatan</p>
-                                    <a href="#">
-                                        <h4>Judul kegiatan</h4>
+                                    <p>Kegiatan Selanjutnya</p>
+                                    <a href="{{
+                                    route('posting.single',$next->id) }}/{{ $next->name }}">
+                                        <h4>Judul kegiatan : {{ $next->name }}</h4>
                                     </a>
                                 </div>
                                 <div class="arrow">
-                                    <a href="#">
+                                    <a href="{{
+                                    route('posting.single',$next->id) }}/{{ $next->name }}">
                                         <span class="lnr text-white lnr-arrow-right"></span>
                                     </a>
                                 </div>
                                 <div class="thumb">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/blog/next.jpg" alt="">
+                                    <a href="{{
+                                    route('posting.single',$next->id) }}/{{ $next->name }}">
+                                        <img class="img-fluid" src="
+                                        {{ url('uploads/posting') }}/{{$next->photo}}" alt="">
                                     </a>
                                 </div>
                             </div>
+                                    @endif
                         </div>
                     </div>
                     <div class="comments-area">
@@ -322,7 +334,7 @@
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget author_widget">
-                            <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                            <img class="img-fluid" src="{{url ('frontend/img/sumitro.png') }}" alt="">
                             <h4>Sumitro</h4>
                             <p>Pemilik Pd.Sritanjung</p>
                             <div class="social_icon">

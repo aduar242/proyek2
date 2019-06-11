@@ -5,7 +5,7 @@
 @endsection
 
 @section('css')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('dist/css/select2.min.css') }}">
 @endsection
 
 @section('content')
@@ -95,7 +95,9 @@
 @endsection
 
 @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+    <script src="{{ asset('plugins/accounting/accounting.min.js') }}"></script>
+    <script src="{{ asset('dist/js/select2.min.js') }}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script> -->
     <script src="{{ asset('js/transaksi.js') }}"></script>
 @endsection

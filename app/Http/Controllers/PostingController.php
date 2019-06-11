@@ -27,7 +27,17 @@ class PostingController extends Controller
     {
         $munculinsemua = Posting::all();
         $posting = Posting::find($id);
-        return view('postings.single', compact('posting','munculinsemua'));    
+
+        //Untuk next single posting
+        $next = Posting::where('id', '>', $posting->id)
+        ->orderBy('id', 'ASC')
+        ->first();
+        //Untuk prev single posting
+        $prev = Posting::where('id', '<', $posting->id)
+        ->orderBy('id', 'DESC')
+        ->first();
+
+        return view('postings.single', compact('posting','munculinsemua','next','prev'));    
     }
 
     public function create()
