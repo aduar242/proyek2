@@ -37,7 +37,7 @@ Route::get('/registrasi', function() {
 // frontend index kontak menjadi -> kontak
     Route::get('/kontak', 'KontakController@web')->name('kontak.web');
 // frontend produk single
-    Route::get('/produk/{id}/{name}','ProductController@show')->name('produk.single');
+    Route::get('/produk/{id}','ProductController@show')->name('produk.single');
 // frontend index product menjadi -> produk
     Route::get('/produk', 'ProductController@web')->name('produk.web');    
 

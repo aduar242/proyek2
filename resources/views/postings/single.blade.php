@@ -20,7 +20,8 @@
 </head>
 
 <body>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.3&appId=2177009702411565&autoLogAppEvents=1"></script>
     <!--================Header Menu Area =================-->
     @include('postings.grup.kepala')
     <!--================Header Menu Area =================-->
@@ -30,7 +31,7 @@
     <!--================End Home Banner Area =================-->
 
     <!--================Blog Categorie Area =================-->
-    <section class="blog_categorie_area">
+    <!-- <section class="blog_categorie_area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -77,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!--================Blog Categorie Area =================-->
 
     <!--================Blog Area =================-->
@@ -92,14 +93,12 @@
                             <div class="blog_info text-right">
                                 <ul class="blog_meta list">
                                     <li>
-                                        <a href="#">Admin
-                                            <i class="lnr lnr-user"></i>
-                                        </a>
+                                            <i class="lnr lnr-user"> Admin</i>
                                     </li>
                                     <li>
-                                        <a href="#">{{ $posting->created_at }}
-                                            <i class="lnr lnr-calendar-full"></i>
-                                        </a>
+                                            <i class="lnr lnr-calendar-full"> {{ $posting->created_at }}
+                                            </i>
+
                                     </li>
                                     <!-- <li>
                                         <a href="#">1.2M Views
@@ -137,7 +136,6 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
-                            <h2>{{ $posting->name }}</h2>
                             <div class="feature-img">
                                 @if (!empty($posting->photo))
                             <img class="img-fluid" width="70%" src="{{ url('uploads/posting') }}/{{$posting->photo}}">
@@ -145,11 +143,15 @@
                         <img src="{{ url('dist/img/tidak-ada-image.png') }}" alt="{{ $posting->name }}">
                         @endif
                             </div>
+                            <p>
+                                
+                            <h2>{{ $posting->name }}</h2>
+                            </p>
                             <p class="excert">
                                 {{ $posting->description }}
                             </p>
                         </div>
-                        <div class="col-lg-12">
+                        <!-- <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-6">
                                     <img class="img-fluid" src="img/blog/post-img1.jpg" alt="">
@@ -160,7 +162,7 @@
                                 <div class="col-lg-12 mt-25">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="navigation-area">
                         <div class="row">
@@ -203,29 +205,14 @@
                         </div>
                     </div>
                     <div class="comments-area">
-                        <h4>05 Comments</h4>
+                        <h2>Komentar</h2>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c1.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5>
-                                            <a href="#">Emilly Blunt</a>
-                                        </h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
+                                <div class="fb-comments" data-href="{{Request::url()}}" data-width="100%" data-numposts="5"></div>
+                                
                             </div>
                         </div>
-                        <div class="comment-list left-padding">
+                        <!-- <div class="comment-list left-padding">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
@@ -308,9 +295,9 @@
                                     <a href="" class="btn-reply text-uppercase">reply</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="comment-form">
+                    <!-- <div class="comment-form">
                         <h4>Leave a Reply</h4>
                         <form>
                             <div class="form-group form-inline">
@@ -330,22 +317,10 @@
                             </div>
                             <a href="#" class="primary-btn submit_btn">Post Comment</a>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
-                        <aside class="single_sidebar_widget search_widget">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search Posts">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="lnr lnr-magnifier"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                            <div class="br"></div>
-                        </aside>
                         <aside class="single_sidebar_widget author_widget">
                             <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
                             <h4>Sumitro</h4>
@@ -409,18 +384,18 @@
                             <div class="br"></div>
                         </aside> -->
                         <aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title">Kategori Kegiatan</h4>
+                            <h4 class="widget_title">Jumlah Kegiatan</h4>
                             <ul class="list cat-list">
                                 <li>
                                     <a href="#" class="d-flex justify-content-between">
-                                        <p>Dalam negri</p>
+                                        <p>Kegiatan</p>
                                         <p>2</p>
                                     </a>
                                 </li>
                             </ul>
                             <div class="br"></div>
                         </aside>
-                        <aside class="single-sidebar-widget newsletter_widget">
+                        <!-- <aside class="single-sidebar-widget newsletter_widget">
                             <h4 class="widget_title">Berlangganan Info Kegiatan</h4>
                             <p>
                                 Setiap ada kegiatan di kami, kami akan otomatis pemberitahuan di email anda bahwa ada kegiatan baru di perusahaan kami
@@ -439,7 +414,7 @@
                             </div>
                             <p class="text-bottom">You can unsubscribe at any time</p>
                             <div class="br"></div>
-                        </aside>
+                        </aside> -->
                     </div>
                 </div>
             </div>

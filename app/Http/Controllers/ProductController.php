@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->orderBy('created_at', 'DESC')->paginate(10);
+        $products = Product::with('category')->orderBy('created_at', 'DESC')->paginate(3);
         return view('products.index', compact('products'));
     }
 
@@ -74,7 +74,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $produk = Product::find($id);
-        return view('products.single', compact('produk'));    
+        $categories = Category::all();
+        return view('products.single', compact('produk','categories'));    
     }
 //Menampilkan semua produk 
 

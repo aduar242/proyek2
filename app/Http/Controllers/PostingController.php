@@ -11,23 +11,15 @@ use Image;
 
 class PostingController extends Controller
 {
-    // Untuk Pagnation
-    public function tags()
-
-    {
-        $postings = DB::Postings('postings')->paginate(3);
-        return view('postings',compact('postings'));
-    }
-
     public function index()
     {
-        $postings = Posting::with('kategoriposting')->orderBy('created_at', 'DESC')->paginate(10);
+        $postings = Posting::with('kategoriposting')->orderBy('created_at', 'DESC')->paginate(3);
         return view('postings.index', compact('postings'));
     }
 
      public function web()
     {
-        $posting = Posting::all();
+        $posting = Posting::with('kategoriposting')->orderBy('created_at', 'DESC')->paginate(3);
         return view('postings.kegiatan',compact('posting'));
     }
 
