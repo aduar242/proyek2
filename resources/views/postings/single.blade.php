@@ -171,8 +171,8 @@
                                 <div class="thumb">
                                     <a href="{{
                                     route('posting.single',$prev->id) }}/{{ $prev->name }}">
-                                        <img class="img-fluid" src="
-                                        {{ url('uploads/posting') }}/{{$prev->photo}}" alt="">
+                                        <img class="" src="
+                                        {{ url('uploads/posting') }}/{{$prev->photo}}" height="150px" width="auto">
                                     </a>
                                 </div>
                                 <div class="detials">
@@ -208,8 +208,8 @@
                                 <div class="thumb">
                                     <a href="{{
                                     route('posting.single',$next->id) }}/{{ $next->name }}">
-                                        <img class="img-fluid" src="
-                                        {{ url('uploads/posting') }}/{{$next->photo}}" alt="">
+                                        <img class="" src="
+                                        {{ url('uploads/posting') }}/{{$next->photo}}" height="150px" width="auto">
                                     </a>
                                 </div>
                             </div>
@@ -334,7 +334,7 @@
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget author_widget">
-                            <img class="img-fluid" src="{{url ('frontend/img/sumitro.png') }}" alt="">
+                            <img class="" src="{{url ('frontend/img/sumitro.png') }}" alt="" height="150px" width="auto">
                             <h4>Sumitro</h4>
                             <p>Pemilik Pd.Sritanjung</p>
                             <div class="social_icon">
@@ -351,7 +351,7 @@
                                     <i class="fa fa-behance"></i>
                                 </a>
                             </div>
-                            <p>test1232
+                            <p>
                             </p>
                             <div class="br"></div>
                         </aside>
@@ -401,7 +401,7 @@
                                 <li>
                                     <a href="#" class="d-flex justify-content-between">
                                         <p>Kegiatan</p>
-                                        <p>2</p>
+                                        <p>{{ $hitungposting }}</p>
                                     </a>
                                 </li>
                             </ul>

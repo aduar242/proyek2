@@ -85,6 +85,11 @@
                                                 <td>:</td>
                                                 <td>@{{ product.price | currency }}</td>
                                             </tr>
+                                            <tr>
+                                                <th>Stok</th>
+                                                <td>:</td>
+                                                <td>@{{ product.stock}}</td>
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>

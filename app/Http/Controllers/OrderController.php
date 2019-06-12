@@ -226,6 +226,6 @@ class OrderController extends Controller
 
     public function invoiceExcel($invoice)
     {
-        return (new OrderInvoice($invoice))->download('invoice-' . $invoice . '.xlsx');
+        return (new OrderInvoice($invoice))->download('invoice-' . $invoice .date('_d-M-Y_H_m_s'). '.xlsx');
     }
 }

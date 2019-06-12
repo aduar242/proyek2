@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('dist/css/ionicons.min.css') }}">
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -34,7 +35,7 @@
                                 <p>Posting Kegiatan</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-calendar"></i>
+                                <i class="fa fa-calendar"></i>
                             </div>
                             
                         </div>
@@ -46,7 +47,7 @@
                                 <p>Produk</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="fa fa-shopping-bag"></i>
                             </div>
                             
                         </div>
@@ -59,7 +60,7 @@
                                 <p>Pesanan</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
+                                <i class="fa fa-shopping-cart"></i>
                             </div>
                             
                         </div>
@@ -71,7 +72,7 @@
                                 <p>Pelanggan</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="fa fa-user"></i>
                             </div>
                         </div>
                     </div>
@@ -82,7 +83,7 @@
                                 <p>Karyawan</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                                <i class="fa fa-user-circle"></i>
                             </div>
                         </div>
                     </div>

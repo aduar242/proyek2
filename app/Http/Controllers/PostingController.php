@@ -13,31 +13,40 @@ class PostingController extends Controller
 {
     public function index()
     {
+        $hitungposting = Posting::count();
         $postings = Posting::with('kategoriposting')->orderBy('created_at', 'DESC')->paginate(3);
-        return view('postings.index', compact('postings'));
+        return view('postings.index', compact('postings','hitungposting'));
     }
 
      public function web()
     {
+        $hitungposting = Posting::count();
         $posting = Posting::with('kategoriposting')->orderBy('created_at', 'DESC')->paginate(3);
-        return view('postings.kegiatan',compact('posting'));
+        return view('postings.kegiatan',compact('posting','hitungposting'));
+    }
+
+    public function kaki($id)
+    {
+        $hitungposting = Posting::count();
+        return view('postings.grup.kaki', compact('hitungposting'));    
     }
 
     public function show($id)
     {
         $munculinsemua = Posting::all();
+        $hitungposting = Posting::count();
         $posting = Posting::find($id);
 
-        //Untuk next single posting
-        $next = Posting::where('id', '>', $posting->id)
-        ->orderBy('id', 'ASC')
-        ->first();
         //Untuk prev single posting
         $prev = Posting::where('id', '<', $posting->id)
         ->orderBy('id', 'DESC')
         ->first();
+        //Untuk next single posting
+        $next = Posting::where('id', '>', $posting->id)
+        ->orderBy('id', 'ASC')
+        ->first();
 
-        return view('postings.single', compact('posting','munculinsemua','next','prev'));    
+        return view('postings.single', compact('hitungposting','posting','munculinsemua','next','prev'));    
     }
 
     public function create()
@@ -50,7 +59,7 @@ class PostingController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:100',
-            'description' => 'nullable|string|max:100',
+            'description' => 'nullable|string|max:4000',
             'kategoriposting_id' => 'required|exists:kategori_postings,id',
             'photo' => 'nullable|image|mimes:jpg,png,jpeg'
         ]);
@@ -109,7 +118,7 @@ class PostingController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:100',
-            'description' => 'nullable|string|max:100',
+            'description' => 'nullable|string|max:4000',
             'kategoriposting_id' => 'required|exists:kategori_postings,id',
             'photo' => 'nullable|image|mimes:jpg,png,jpeg'
         ]);

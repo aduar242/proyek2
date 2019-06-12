@@ -38,9 +38,9 @@
                     <div class="login_box_img">
                         <img class="img-fluid" src="{{ ('frontend/img/login.jpg')}}" alt="">
                         <div class="hover">
-                            <h4>Belum terdaftar sebagai user</h4>
-                            <p>Silahkan daftar di bawah sini</p>
-                            <a class="main_btn" href="registration.html">Membuat akun baru</a>
+                            <h4>Untuk Memasuki Halaman Admin Dashboard</h4>
+                            <p>Silahkan login terlebih dahulu</p>
+                            <!-- <a class="main_btn" href="registration.html">Membuat akun baru</a> -->
                         </div>
                     </div>
                 </div>
